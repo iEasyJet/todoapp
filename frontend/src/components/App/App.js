@@ -161,6 +161,7 @@ function App() {
     api
       .deleteCard(id)
       .then(() => {
+        setCards(cards.filter((i) => i._id !== id));
         setFiltredCards(filtredCards.filter((i) => i._id !== id));
       })
       .catch(() => {
