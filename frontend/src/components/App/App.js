@@ -32,11 +32,6 @@ function App() {
   const [cards, setCards] = useState([]);
   const [filtredCards, setFiltredCards] = useState([]);
 
-  const [filtredCardsNew, setFiltredCardsNew] = useState([]);
-  const [filtredCardsAtWork, setFiltredCardsAtWork] = useState([]);
-  const [filtredCardsReady, setFiltredCardsReady] = useState([]);
-  const [filtredCardsOverDue, setFiltredCardsOverDue] = useState([]);
-
   /* Открытие попапа для просмотра карточки */
   function handleCardClick(card) {
     setSelectedCard({
@@ -171,11 +166,10 @@ function App() {
       .addNewCard(card)
       .then((res) => {
         setCards([res, ...cards]);
-        /* setFiltredCards([res, ...filtredCards]); */
+        if (res.status === filtredCards[0].status) {
+          setFiltredCards([res, ...filtredCards]);
+        }
         handleCloseAllPopups();
-      })
-      .then(() => {
-        setFiltredCards(cards);
       })
       .catch(() => {
         console.log('Err!');
@@ -189,6 +183,23 @@ function App() {
       .then((res) => {
         setCards(res.cards);
         handleCloseAllPopups();
+        if (containerTitle === 'Просроченные задачи') {
+          setFiltredCards(
+            res.cards.filter(
+              (i) => i.date < formatDate(new Date()) && i.status !== 'ready'
+            )
+          );
+        }
+        if (containerTitle === 'Новые задачи') {
+          setFiltredCards(res.cards.filter((i) => i.status === 'new'));
+        }
+        if (containerTitle === 'Задачи в работе') {
+          console.log(res.cards.filter((i) => i.status === 'atWork'));
+          setFiltredCards(res.cards.filter((i) => i.status === 'atWork'));
+        }
+        if (containerTitle === 'Задачи выполненные') {
+          setFiltredCards(res.cards.filter((i) => i.status === 'ready'));
+        }
       })
       .catch(() => {
         console.log('Err!');

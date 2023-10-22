@@ -61,7 +61,8 @@ class Api {
 }
 
 const configApi = {
-  url: 'http://localhost:3003',
+  url: 'https://mesto-react.nomoredomainsrocks.ru',
+  /* url: 'http://localhost:3003', */
 };
 
 const api = new Api(configApi);

@@ -18,9 +18,6 @@ function PopupAdd(props) {
     });
     titleRef.current.value = '';
     descriptionRef.current.value = '';
-    dateRef.current.value = '';
-    priorityRef.current.value = '';
-    statusRef.current.value = '';
   }
   return (
     <div
