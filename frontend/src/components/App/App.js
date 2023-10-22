@@ -123,13 +123,21 @@ function App() {
   /* Фильтрация "Новые" */
   const isNewCards = () => {
     setContainerTitle('Новые задачи');
-    setFiltredCards(cards.filter((i) => i.status === 'new'));
+    setFiltredCards(
+      cards.filter(
+        (i) => i.date >= formatDate(new Date()) && i.status === 'new'
+      )
+    );
   };
 
   /* Фильтрация "В работе" */
   const isCardsAtWork = () => {
     setContainerTitle('Задачи в работе');
-    setFiltredCards(cards.filter((i) => i.status === 'atWork'));
+    setFiltredCards(
+      cards.filter(
+        (i) => i.date >= formatDate(new Date()) && i.status === 'atWork'
+      )
+    );
   };
 
   /* Фильтрация "Готовые" */
@@ -191,11 +199,18 @@ function App() {
           );
         }
         if (containerTitle === 'Новые задачи') {
-          setFiltredCards(res.cards.filter((i) => i.status === 'new'));
+          setFiltredCards(
+            res.cards.filter(
+              (i) => i.date >= formatDate(new Date()) && i.status === 'new'
+            )
+          );
         }
         if (containerTitle === 'Задачи в работе') {
-          console.log(res.cards.filter((i) => i.status === 'atWork'));
-          setFiltredCards(res.cards.filter((i) => i.status === 'atWork'));
+          setFiltredCards(
+            res.cards.filter(
+              (i) => i.date >= formatDate(new Date()) && i.status === 'atWork'
+            )
+          );
         }
         if (containerTitle === 'Задачи выполненные') {
           setFiltredCards(res.cards.filter((i) => i.status === 'ready'));
