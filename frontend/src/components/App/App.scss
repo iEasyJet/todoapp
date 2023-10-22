@@ -1,0 +1,10 @@
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@100;400&display=swap');
+
+#root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+}

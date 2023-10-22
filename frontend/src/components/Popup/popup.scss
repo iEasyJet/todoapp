@@ -1,0 +1,203 @@
+.popup {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.99);
+  z-index: 1;
+}
+
+.popup-add-card {
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.1s linear;
+
+  &__wrapper {
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 500px;
+    height: 450px;
+
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+
+  &__close {
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    color: white;
+    top: 5px;
+    right: calc(50% - 25px);
+    font-size: 50px;
+
+    transition: all 0.1s linear;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.25;
+    }
+  }
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+
+  margin-top: 60px;
+
+  &__title {
+    box-sizing: border-box;
+    margin: 0 5% 10px;
+    padding: 15px;
+    width: 90%;
+    height: 5%;
+    display: block;
+    background: none;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  &__description {
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 0 5% 10px;
+    width: 90%;
+    height: 35%;
+    display: block;
+    background: none;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    resize: none;
+
+    &_view-mod {
+      height: 45%;
+      margin: 0 5% 30px;
+    }
+  }
+
+  &__date {
+    margin: 0 5% 10px;
+    padding: 5px;
+    display: block;
+    outline: none;
+
+    border: 2px solid white;
+    border-radius: 5px;
+
+    font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  &__select {
+    display: block;
+    padding: 0 5px;
+    height: 7%;
+    width: 30%;
+    background: black;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  &__label {
+    margin: 0 5% 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: white;
+    font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  &__ready {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30%;
+    height: 10%;
+
+    margin: 30px auto 0;
+
+    outline: none;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
+
+    transition: all 0.1s linear;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: rgba(255, 255, 255, 0.4) 0px 5px,
+        rgba(255, 255, 255, 0.3) 0px 10px;
+    }
+  }
+}
+
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 500px) {
+  .form {
+    &__title {
+      font-size: 12px;
+    }
+
+    &__description {
+      font-size: 12px;
+    }
+
+    &__date {
+      font-size: 12px;
+    }
+
+    &__select {
+      font-size: 12px;
+    }
+
+    &__label {
+      font-size: 12px;
+    }
+
+    &__ready {
+      font-size: 12px;
+    }
+  }
+}

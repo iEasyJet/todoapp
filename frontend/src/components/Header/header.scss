@@ -1,0 +1,96 @@
+.header {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  min-height: 200px;
+  position: relative;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    letter-spacing: 8px;
+    font-size: 50px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    color: white;
+  }
+
+  &_circle {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 125px;
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__new-entry {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    background: none;
+    border: none;
+    outline: none;
+  }
+
+  &__add-circle {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: white;
+    font-size: 100px;
+
+    transition: all 0.1s linear;
+  }
+
+  &__add-circle:hover {
+    font-size: 125px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    min-height: 150px;
+
+    &__title {
+      letter-spacing: 6px;
+      font-size: 40px;
+    }
+
+    &_circle {
+      top: 100px;
+
+      width: 100px;
+      height: 100px;
+    }
+
+    &__add-circle {
+      font-size: 70px;
+    }
+
+    &__add-circle:hover {
+      font-size: 90px;
+    }
+  }
+}
